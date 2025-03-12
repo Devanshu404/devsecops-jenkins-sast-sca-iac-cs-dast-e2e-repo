@@ -26,7 +26,8 @@ pipeline {
         withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
           script {
             try {
-              bat('"D:\\New folder\\DevSecOps\\SnykCLI\\snyk-win.exe" container test Devanshu404/testeb')
+              bat("""cmd /c ""D:\\New folder\\DevSecOps\\SnykCLI\\snyk-win.exe" container test Devanshu404/testeb""")
+              //bat('"D:\\New folder\\DevSecOps\\SnykCLI\\snyk-win.exe" container test Devanshu404/testeb')
               //bat("D:\\New folder\\DevSecOps\\SnykCLI\\snyk-win.exe  container test Devanshu404/testeb")
             } catch (err) {
               echo err.getMessage()
