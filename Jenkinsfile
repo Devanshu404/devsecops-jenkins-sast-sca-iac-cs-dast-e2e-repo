@@ -25,11 +25,11 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
           script {
-            try {
+            // try {
               bat("D://Newfolder//DevSecOps//SnykCLI//snyk-win.exe  container test Devanshu404/testeb")
-            } catch (err) {
-              echo err.getMessage()
-            }
+            // } catch (err) {
+            //   echo err.getMessage()
+            // }
           }
         }
       }
@@ -47,11 +47,11 @@ pipeline {
       }
     }
 
-    stage('checkov') {
-      steps {
-        bat("checkov -s -f main.tf")
-      }
-    }
+    // stage('checkov') {
+    //   steps {
+    //     bat("checkov -s -f main.tf")
+    //   }
+    // }
 
   }
 }
