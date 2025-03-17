@@ -46,12 +46,17 @@ pipeline {
          bat("D://Newfolder//DevSecOps//EndToEndpipelines//ZAP_2.16.0_Crossplatform//ZAP_2.16.0//zap.sh -port 9393 -cmd -quickurl https://www.example.com -quickprogress -quickout D://Newfolder//DevSecOps//EndToEndpipelines//ZAP_2.16.0_Crossplatform//ZAP_2.16.0//output.html")              
       }
     }
-
-    // stage('checkov') {
-    //   steps {
-    //     bat("checkov -s -f main.tf")
-    //   }
-    // }
+ stages {
+        stage('Install Checkov') {
+            steps {
+                bat("pip install checkov")
+            }
+        }
+    stage('checkov') {
+      steps {
+        bat("checkov -s -f main.tf")
+      }
+    }
 
   }
 }
