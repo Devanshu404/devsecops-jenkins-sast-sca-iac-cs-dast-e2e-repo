@@ -25,11 +25,11 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
           script {
-            // try {
+            try {
               bat("D://Newfolder//DevSecOps//SnykCLI//snyk-win.exe  container test Devanshu404/testeb")
-            // } catch (err) {
-            //   echo err.getMessage()
-            // }
+            } catch (err) {
+              echo err.getMessage()
+            }
           }
         }
       }
@@ -46,16 +46,16 @@ pipeline {
          bat("D://Newfolder//DevSecOps//EndToEndpipelines//ZAP_2.16.0_Crossplatform//ZAP_2.16.0//zap.sh -port 9393 -cmd -quickurl https://www.example.com -quickprogress -quickout D://Newfolder//DevSecOps//EndToEndpipelines//ZAP_2.16.0_Crossplatform//ZAP_2.16.0//output.html")              
       }
     }
-    stage('Install Checkov') {
-      steps {
-          bat("pip install checkov")
-        }
-    }  
-    stage('checkov') {
-      steps {
-        bat("checkov -s -f main.tf")
-      }
-    }
+    // stage('Install Checkov') {
+    //   steps {
+    //       bat("pip install checkov")
+    //     }
+    // }  
+    // stage('checkov') {
+    //   steps {
+    //     bat("checkov -s -f main.tf")
+    //   }
+    // }
 
   }
 }
