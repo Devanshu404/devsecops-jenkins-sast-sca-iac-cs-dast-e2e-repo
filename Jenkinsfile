@@ -43,7 +43,7 @@ pipeline {
     }
     stage('RunDASTUsingZAP') {
       steps {
-         bat("D://Newfolder//DevSecOps//EndToEndpipelines//ZAP_2.16.0_Crossplatform//ZAP_2.16.0//zap.sh -port 9393 -cmd -quickurl https://www.example.com -quickprogress -quickout D://Newfolder//DevSecOps//EndToEndpipelines//ZAP_2.16.0_Crossplatform//ZAP_2.16.0//output1.html")              
+         bat("D://Newfolder//DevSecOps//EndToEndpipelines//ZAP_2.16.0_Crossplatform//ZAP_2.16.0//zap.sh -port 9393 -cmd -quickurl http://testaspnet.vulnweb.com/ -quickprogress -quickout D://Newfolder//DevSecOps//EndToEndpipelines//ZAP_2.16.0_Crossplatform//ZAP_2.16.0//output1.html")              
       }
     }
     // stage('Install Checkov') {
